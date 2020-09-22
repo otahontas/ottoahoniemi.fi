@@ -11,7 +11,7 @@ const SocialButton = ({ to, children }) => (
 const Home = () => {
   return (
     <>
-      <SEO title="Otto Ahoniemi - Home" />
+      <SEO title="Home" />
       <Body>
         <header>
           <h1>Hi, I'm Otto!</h1>

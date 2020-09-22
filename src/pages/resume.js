@@ -167,7 +167,7 @@ const Experience = () => {
 const Resume = () => {
   return (
     <>
-      <SEO title="Otto Ahoniemi - Resume" />
+      <SEO title="Resume" />
       <Body>
         <MainInfo />
         <Interests />
