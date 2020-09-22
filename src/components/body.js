@@ -1,15 +1,15 @@
 import React from "react"
-import Header from "./header"
+import Nav from "./nav"
 import Footer from "./footer"
 
 const Body = ({ children }) => {
   return (
     <>
-      <Header />
-      <main>
-        {children}
-      </main>
-      <Footer />
+    <Nav />
+    <main>
+      {children}
+    </main>
+    <Footer />
     </>
   )
 }
