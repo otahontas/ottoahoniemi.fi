@@ -1,5 +1,6 @@
 import React from "react"
 import Body from "../components/body"
+import SEO from "../components/seo"
 
 const CVSection = ({ header, children }) => (
   <>
@@ -33,7 +34,10 @@ const MainInfo = () => (
     </p>
     <p>
       <figure>
-        <img src={"/otto.jpg"} />
+        <img
+          src={"/otto.jpg"}
+          alt="Me smiling in Helsinki University library"
+        />
       </figure>
     </p>
   </header>
@@ -162,13 +166,16 @@ const Experience = () => {
 
 const Resume = () => {
   return (
-    <Body>
-      <MainInfo />
-      <Interests />
-      <Skills />
-      <Education />
-      <Experience />
-    </Body>
+    <>
+      <SEO title="Otto Ahoniemi - Resume" />
+      <Body>
+        <MainInfo />
+        <Interests />
+        <Skills />
+        <Education />
+        <Experience />
+      </Body>
+    </>
   )
 }
 
