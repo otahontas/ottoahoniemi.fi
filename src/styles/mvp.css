@@ -84,7 +84,7 @@ section aside {
     box-shadow: var(--box-shadow) var(--color-shadow);
     margin: 1rem;
     padding: 1.25rem;
-    width: var(--width-card);
+    width: var(--width-card-medium);
 }
 
 section aside:hover {
@@ -307,6 +307,7 @@ figure {
 }
 
 figure img {
+    border: 1px solid black;
     max-width: 100%;
 }
 

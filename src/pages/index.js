@@ -9,7 +9,10 @@ const Home = () => {
       <header>
         <h1>Hi, I'm Otto!</h1>
         <p>
-          I develop web-related stuff with <b>Python</b> and <b>Javascript</b> and study Computer Science at Helsinki University. Currently looking for new opportunities.
+          I develop web-related stuff and study Computer Science at Helsinki University. I'm nowadays mostly a programmer, but have been involved in many great projects / workplaces during recent years. These, to name a few, include producing podcasts, hosting a weekly radio show about startups, producing music and leading the Finnish high school students union.
+        </p>
+        <p>
+          I'm currently looking for interesting new opportunities!
         </p>
       </header>
       <section>

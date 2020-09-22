@@ -1,7 +1,8 @@
 import React from "react"
 import Body from "../components/body"
 
-const occupations = [
+
+const experience = [
   { employer: "CSC - IT Center for Science",
     title: "Software developer trainee",
     description: "As a software engineer trainee at Services for sensitive data -team, I'm developing secure data services, such as data storage and repositories, authentication and authorization of users and secure cloud infrastructure.",
@@ -34,65 +35,93 @@ const occupations = [
   },
 ]
 
+const CVSection = ({header, children}) => (
+  <>
+    <section>
+      <h2>{header}</h2>
+    </section>
+    <section>
+        {children}
+    </section>
+  </>
+)
+
+const Card = ({header, content})  => (
+  <aside>
+    {header ? <h3>{header}</h3> : null}
+    {(Array.isArray(content)) ?
+      content.map(c => <p key={c}>{c}</p>)
+    : (typeof content === 'string' || content instanceof String) ?
+      <p>{content}</p>
+    : null }
+  </aside>
+)
+
+const MainInfo = () => (
+  <header>
+      <h1>Otto Ahoniemi</h1>
+      <p><i>Computer scientist, programmer</i></p>
+      <p>&#111;&#116;&#116;&#111;&#64;&#111;&#116;&#116;&#111;&#97;&#104;&#111;&#110;&#105;&#101;&#109;&#105;&#46;&#102;&#105; | Github: otahontas | LinkedIn: ottoahoniemi</p>
+      <p>
+        <figure>
+          <img src={'/otto.jpg'} alt="Resume picture" />
+        </figure>
+      </p>
+  </header>
+)
+
+const Interests = () => (
+  <CVSection header="Interests">
+    <Card content="Algorithms and optimization problems, audio programming, full-stack web-development, audio producing (both music and spoken content)." />
+  </CVSection>
+)
+
+const Skills = () => {
+  const skills = [
+    { header: "Programming",
+      content: ["+++ : Python, Javascript & Typescript (mainly React, Node & Gatsby), Shell scripting and unix tools, Java", "++ : Docker & Docker-compose, SQL (mainly Postgres), HTML, CSS & Sass), Git", "+ : AWS, Rust, Kubernetes"]
+    },
+    { header: "Other",
+      content: ["Project management, group leading", "Content creation and writing", "Audio producing (DAWs, mixing, mastering)", "Public speaking"]
+    },
+    { header: "Languages", 
+      content: ["Finnish: native", "English: professional working proficiency", "Swedish: average"]}
+  ]
+
+  return (
+  <CVSection header="Skills">
+    {skills.map(skill => <Card header={skill.header} content={skill.content} />)}
+  </CVSection>
+)}
+
+const Education = () => {
+  const education = [
+    { header: "Bachelor of science, Helsinki university, 2018 - now",
+      content: ["Major: Computer science", "Minor: Mathematics, statistics, social sciences"]
+    }
+  ]
+
+  return (
+    <CVSection header="Education">
+      {education.map(education => <Card header={education.header} content ={education.content} />)}
+      </CVSection>
+  )
+}
+
+const Experience = () => {
+
+}
 
 const Resume = () => {
   return (
     <Body>
-      <h1>About me</h1>
-      <p>
-        I'm nowadays mostly a programmer, but have been involved in many great projects / workplaces during recent years. These, to name a few, include producing podcasts, hosting a weekly radio show about startups, producing music and leading the Finnish high school students union.
-      </p>
-      <hr />
-      <h1>Resume</h1>
-      <p>
-        <i>Computer scientist, programmer</i>
-      </p>
-      <p>
-        <img src={'/otto.jpg'} alt="Resume picture" />
-      </p>
-
-      <h2>Currently</h2>
-      <p>
-      Studying Computer science and assisting courses at Helsinki University. Also building open source hobby projects and making music.
-      </p>
-
-      <h2>Interests</h2>
-      <p>
-      Algorithms and optimization problems, audio programming, full-stack web-development, audio producing (both music and spoken content).
-      </p>
-      <h2>Skills</h2>
-
-      <h3>Programming related</h3>
-      <ul>
-        <li>+++ : Python, Javascript & Typescript (mainly React, Node & Gatsby), Shell scripting and unix tools, Java</li>
-        <li>++ : Docker & Docker-compose, SQL (mainly Postgres), HTML, CSS & Sass)</li>
-        <li>+ : AWS, Rust, Kubernetes</li>
-      </ul>
-
-      <h3>Other</h3>
-      <ul>
-        <li>Project management, group leading</li>
-        <li>Content creation and writing</li>
-        <li>Audio producing (DAWs, mixing, mastering)</li>
-        <li>Public speaking</li>
-      </ul>
-
-      <h3>Languages</h3>
-      <ul>
-        <li>Finnish: native</li>
-        <li>English: professional working proficiency</li>
-        <li>Swedish: average</li>
-      </ul>
-
-      <h2>Education</h2>
-      <h3>Bachelor of science, Helsinki university, 2018 - now</h3>
-      <ul>
-        <li>Major: Computer science</li>
-        <li>Minor: Mathematics, statistics, social sciences</li>
-      </ul>
+      <MainInfo />
+      <Interests />
+      <Skills />
+      <Education />
 
       <h2>Experience</h2>
-      {occupations.map(occupation => 
+      {experience.map(occupation => 
       <>
         <h3>{occupation.title}, {occupation.employer}, {occupation.time}</h3>
         <p>{occupation.description}</p>
