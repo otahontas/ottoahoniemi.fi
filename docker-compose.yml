@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx
+    restart: unless-stopped
+    networks:
+      - proxy
+    volumes:
+      - ./site:/usr/share/nginx/html
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.ottoahoniemifi.entrypoints=http"
+      - "traefik.http.routers.ottoahoniemifi.rule=HostRegexp(`ottoahoniemi.fi`, `www.ottoahoniemi.fi`)"
+      - "traefik.http.middlewares.ottoahoniemifi-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.ottoahoniemifi.middlewares=ottoahoniemifi-https-redirect"
+      - "traefik.http.routers.ottoahoniemifi-secure.entrypoints=https"
+      - "traefik.http.routers.ottoahoniemifi-secure.rule=HostRegexp(`ottoahoniemi.fi`, `www.ottoahoniemi.fi`)"
+      - "traefik.http.routers.ottoahoniemifi-secure.tls=true"
+      - "traefik.http.routers.ottoahoniemifi-secure.tls.certresolver=http"
+      - "traefik.http.routers.ottoahoniemifi-secure.service=ottoahoniemifi"
+      - "traefik.http.services.ottoahoniemifi.loadbalancer.server.port=80"
+      - "traefik.docker.network=proxy"
+
+networks:
+  proxy:
+    external: true

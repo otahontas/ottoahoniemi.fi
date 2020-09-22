@@ -8,6 +8,7 @@ Working:
 - Homesite + resume in English
 - Stylings based on semantic HTML
 - Prittier, eslint etc. configs
+- Deployment, currently with basic rsync to server, where site is running behind traefik reverse proxy + nginx container (see docker-compose for more info)
 
 Todo:
 - Get resume data from json file / even directely from LinkedIn. 
