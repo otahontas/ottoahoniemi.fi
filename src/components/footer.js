@@ -2,9 +2,9 @@ import React from "react"
 
 const Footer = () => {
   return (
-    <footer style={{ marginTop: `1.5rem` }}>
+    <footer>
       <p>
-        Built with <a href="https://www.gatsbyjs.com/">Gatsby </a>.
+        Built with <a href="https://www.gatsbyjs.com/">Gatsby </a> and <a href="https://minicss.org/">mini.css</a>.
       </p>
     </footer>
   )
