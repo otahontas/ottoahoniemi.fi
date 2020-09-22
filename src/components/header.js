@@ -1,23 +1,63 @@
 import React from "react"
 import { Link } from "gatsby"
+import styled from "@emotion/styled"
+import { css } from "@emotion/core"
 
-const ListLink = props => (
-  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
-    <Link to={props.to}>{props.children}</Link>
-  </li>
+const Container = styled.header`
+  display: flex;
+  height: 5rem;
+  justify-content: flex-end;
+`
+
+const Nav = styled.nav`
+  align-items: center;
+  display: flex;
+  font-weight: bold;
+  justify-content: space-between;
+  margin-bottom: 7rem;
+`
+
+const StyledListItem = styled.li`
+  display: inline-block;
+  margin: 0 0.5rem;
+  position: relative;
+  text-align: left;
+
+  a {
+    color: DarkSlateBlue;
+    display: inline-block;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+
+  a:hover {
+    filter: brightness(1.2);
+    text-decoration: underline;
+  }
+`
+
+const listStyle = css`
+  list-style: none;
+  padding: 0;
+`
+
+const ListLink = ({to, children}) => (
+  <StyledListItem>
+    <Link to={to}>{children}</Link>
+  </StyledListItem>
 )
 
 const Header = () => {
   return (
-        <header style={{ marginBottom: `1.5rem` }}>
-        <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
-          <h3 style={{ display: `inline` }}>Otto Ahoniemi</h3>
-        </Link>
-        <ul style={{ listStyle: `none`, float: `right` }}>
+    <Container>
+      <Nav>
+        <ul css={listStyle}>
           <ListLink to="/">Home</ListLink>
-          <ListLink to="/about/">About</ListLink>
+          <ListLink to="/about">About</ListLink>
         </ul>
-      </header>
+      </Nav>
+    </Container>
   )
 }
 
