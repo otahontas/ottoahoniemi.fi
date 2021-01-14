@@ -23,7 +23,6 @@ const Home = () => {
             about startups, producing music and leading the Finnish high school
             students union.
           </p>
-          <p>I'm currently looking for interesting new opportunities!</p>
         </header>
         <section>
           <SocialButton to="https://github.com/otahontas">Github</SocialButton>
