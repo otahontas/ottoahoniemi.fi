@@ -18,3 +18,4 @@ Todo:
 - Add i18n localization / internalization (especially for Finnish resume)
 - Make resume look better, more visuals
 - Add Github actions for tests & deployment
+- Add Lisence 
